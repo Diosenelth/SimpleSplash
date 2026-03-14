@@ -5,7 +5,12 @@
     <style name="Theme.FacebookSplashScreen" parent="Theme.SplashScreen">
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/icon_facebook</item>
         <item name="android:windowSplashScreenBrandingImage">@drawable/icon_meta</item>
-        <item name="windowSplashScreenBackground">#000000</item>
+        <item name="windowSplashScreenBackground">@color/splash_backgroun_color</item>
+        <item name="postSplashScreenTheme">@style/Theme.SimpleSplash</item>
+    </style>
+    <style name="Theme.ChatGptplashScreen" parent="Theme.SplashScreen">
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/animation_holder</item>
+        <item name="windowSplashScreenBackground">@color/splash_backgroun_color</item>
         <item name="postSplashScreenTheme">@style/Theme.SimpleSplash</item>
     </style>
 </resources>
