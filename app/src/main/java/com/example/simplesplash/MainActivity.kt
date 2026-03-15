@@ -1,6 +1,7 @@
 package com.example.simplesplash
 
 import android.animation.ValueAnimator
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -26,15 +27,17 @@ class MainActivity : ComponentActivity() {
         ViewModelProvider(this)[SimpleSplashViewModel::class.java]
     }
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen().apply {
-            setKeepOnScreenCondition { splashScreenViewModel.isSplashScreenVisible.value } //mantener splash screen hasta que sea false
-            setOnExitAnimationListener { splash ->
-                val rotateAnimator = ValueAnimator.ofFloat(0f, 90f)
-                rotateAnimator.addUpdateListener {
-                    splash.iconView.rotation = it.animatedValue as Float
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
+            installSplashScreen().apply {
+                setKeepOnScreenCondition { splashScreenViewModel.isSplashScreenVisible.value } //mantener splash screen hasta que sea false
+                setOnExitAnimationListener { splash ->
+                    val rotateAnimator = ValueAnimator.ofFloat(0f, 90f)
+                    rotateAnimator.addUpdateListener {
+                        splash.iconView.rotation = it.animatedValue as Float
+                    }
+                    rotateAnimator.doOnEnd { splash.remove() }
+                    rotateAnimator.start()
                 }
-                rotateAnimator.doOnEnd { splash.remove() }
-                rotateAnimator.start()
             }
         }
         super.onCreate(savedInstanceState)

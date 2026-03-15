@@ -5,5 +5,11 @@
     <style name="Theme.FacebookSplashScreen" parent="Theme.SplashScreen" >
         <item name="windowSplashScreenBackground">@color/splash_backgroun_color</item>
         <item name="postSplashScreenTheme">@style/Theme.SimpleSplash</item>
+        <item name="android:windowBackground">@drawable/window_bg_facebook_as_splash</item>
+    </style>
+    <style name="Theme.ChatGptplashScreen" parent="Theme.SplashScreen" >
+        <item name="windowSplashScreenBackground">@color/splash_backgroun_color</item>
+        <item name="postSplashScreenTheme">@style/Theme.SimpleSplash</item>
+        <item name="android:windowBackground">@drawable/window_bg_chatgpt_as_splash</item>
     </style>
 </resources>
